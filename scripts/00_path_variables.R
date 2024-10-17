@@ -7,7 +7,7 @@
 # This doesn't make sense, one name can't direct to two values
 
 # Raw Data
-rawdata_path <- "data/raw data/raw data.csv" # No need
+rawdata_path <- "data/raw data/Progenesis_LT_817_Quantifiable_prot_All.csv"
 
 # 2. Datasets -------------------------------------------------------------
 ## 01 --------
@@ -34,8 +34,9 @@ csv_data_for_metabo <- save_csv_data_for_metabo_path <- "data/03_01_03_data_for_
 metabo_data <- save_metabo_data <- "data/03_02_01_metabo_data_for_statistical_analysis_and_enrichment_post_03_02.RData" 
 
 ### 03_03 -------------------
-residual_model_feeding_regime <- save_residual_model_feeding_regime <-  "data/03_03_01_residual_model_feeding_regime_on_knn_imputed_data.csv"
-
+residual_model_feeding_regime_knn_imputed <- save_residual_model_feeding_regime_knn_imputed <-  "data/03_03_01_residual_model_feeding_regime_on_knn_imputed_data.csv"
+residual_model_feeding_regime_metabo <- save_residual_model_feeding_regime_metabo <- "data/03_03_01_residual_model_feeding_regime_on_metabo_data.csv"
+  
 ### 05_01 ------------------
 residual_model_feeding_regime <- save_residual_model_feeding_regime <-  "data/05_01_01_residual_model_feeding_regime.csv"
 efs_result_dest <- "data/05_01_02_Ensemble_Feature_selection_output.csv"
@@ -65,10 +66,6 @@ save_venn_diagram_wo_interaction <- "plots/07_01_01_enn_diagram_wo_interaction.p
 save_upset_plot_diet_givenstress <- "plots/07_01_02_upset_plot_diet_givenstress.png"
 save_upset_plot_diet_givennostress <- "plots/07_01_02_upset_plot_diet_givennostress.png"
 
-
-save_heatmap_significant_genes_Slaughter_Stress_removing_affect_of_factor <- "plots/07_01_04_heatmap_significant_genes_Slaughter_Stress_removing_affect_of_factor.png" # Not This
-save_heatmap_significant_genes_Slaughter_Stress_with_metabo_data <- "plots/07_01_04_heatmap_significant_genes_Slaughter_Stress_with_metabo_data.png" # Go with this
-
 save_volcanoplot_slaughter_condition <- "plots/07_01_03_volcanoplot_slaughter_condition.png"
 
 save_up_and_down_regulated_genes <- "data/07_01_01_up_and_down_regulated_genes.xlsx" 
@@ -77,6 +74,11 @@ save_up_and_down_regulated_genes <- "data/07_01_01_up_and_down_regulated_genes.x
 save_volcano_plot_EFS <- "plots/07_02_01_volcano_plot_EFS.png"
 save_EFS_vs_ANOVA <- "plots/07_02_01_volcano_plot_EFS_vs_ANOVA.png"
 
+## 07_03 ------------------------
+save_heatmap_significant_genes_Slaughter_Stress_removing_affect_of_factor <- "plots/07_03_01_heatmap_significant_genes_Slaughter_Stress_removing_affect_of_factor.png" # Not This
+save_heatmap_significant_genes_Slaughter_Stress_with_metabo_data <- "plots/07_03_02_heatmap_significant_genes_Slaughter_Stress_with_metabo_data.png" # Go with this
+save_heatmap_up_and_down_regulated_genes_Slaughter_Stress_with_metabo_data <- "plots/07_03_03_heatmap_up_and_down_regulated_genes_Slaughter_Stress_with_metabo_data.png"
+save_heatmap_significant_genes_Feeding_Regime_with_metabo_data <- "plots/07_03_04_heatmap_significant_genes_Feeding_Regime_with_metabo_data.png"
 # 3. Functions ----------------------------------------------------------
 
 getAccession <- "scripts/functions/getAccession.R" # 02_01

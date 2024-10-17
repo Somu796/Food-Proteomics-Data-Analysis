@@ -1,6 +1,6 @@
 
 # Master Script
-# Only change the location of csv file from  00_path_variables.R
+# Only change the location of raw data csv file from  00_path_variables.R
 
 source("scripts/01_01_cleaning_raw_data.R")
 
@@ -52,6 +52,9 @@ source("scripts/07_01_venndiagram_upSet_volcano_plot.R", echo = TRUE)
 
 rm(list = ls())
 source("scripts/07_02_supervised_learning_vs_anova_plots.R", echo = TRUE)
+
+rm(list = ls())
+source("scripts/07_03_heatmap_plots.R", echo = TRUE)
 
 
 # Only problem with this is the projects has to be saved to display in quarto file,
