@@ -7,7 +7,7 @@
 # This doesn't make sense, one name can't direct to two values
 
 # Raw Data
-rawdata_path <- "data/raw data/Progenesis_ST_815_Quantifiable_prot_All.csv" # No need
+rawdata_path <- "data/raw data/raw data.csv" # No need
 
 # 2. Datasets -------------------------------------------------------------
 ## 01 --------
