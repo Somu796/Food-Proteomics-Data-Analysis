@@ -1,0 +1,5 @@
+#06_02
+During ANOVA we are using gene_name as column name, this can be not unique, better to use accession instead. 
+
+
+##05_01 PCA should be on variance removed data

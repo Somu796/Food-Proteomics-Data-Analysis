@@ -1,0 +1,21 @@
+1.Diff b/w pull() and select()?
+
+First, it makes sense to see what class each function creates.
+
+library(dplyr)
+
+mtcars %>% pull(cyl) %>% class()
+#> 'numeric'
+
+mtcars %>% select(cyl) %>% class()
+#> 'data.frame'
+So pull() creates a vector -- which, in this case, is numeric -- whereas select() creates a data frame.
+
+Basically, pull() is the equivalent to writing mtcars$cyl or mtcars[, "cyl"], whereas select() removes all of the columns except for cyl but maintains the data frame structure.
+
+2. Why QFeaature has a limitation?
+Ans. 
+1. For ANOVA we need both Numerical and categorical
+2. everytime we have to boil it down 
+
+3. ad-hoc test like Levene Test, ANOVA does give you one p value for a group while, post-hoc test like shapiro wilk/ t-test gives you p value for each comparison.

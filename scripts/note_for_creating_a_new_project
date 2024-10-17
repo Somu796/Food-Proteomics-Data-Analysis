@@ -1,0 +1,34 @@
+documentation: https://rstudio.github.io/renv/articles/renv.html
+# first time
+1. Create a folder, --Done
+project_name
+- data
+-- raw data
+- scripts
+- doc
+- plots
+
+2. New R Project in existing directory --Done
+
+3. Create Virtual Environment --Done
+helps in keeping version of the lib
+install.packages("renv")
+renv::init()
+
+4. create a github repo **--Left**
+with github desktop,
+- gitignore
+- README
+
+5. Setting library paths --Done
+.libPaths(renv_path)
+
+6. Installing Pacmanan and Bioconductor --Done
+renv::install("pacman")
+
+if (!require("BiocManager", quietly = TRUE)) 
+    renv::install("BiocManager")
+BiocManager::install(version = "3.19")
+
+
+7. save the output files in the 00_path_variables after every scripts
