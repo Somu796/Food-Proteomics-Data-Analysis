@@ -10,11 +10,12 @@
 pacman::p_load(tidyverse, janitor, tidylog)
 
 source("scripts/00_path_variables.R")
+
 # 2. Function for data cleaning -------------------------------------------
 
 data_cleaning <- function(rawdata_path, save_gene_data_path, save_sample_details_path){
-  # 2. Data Transformation -----------------------------------------------------------------
   
+  # 2.1. Data Transformation -----------------------------------------------------------------
   
   # ST data
   gene_data <- read_csv(rawdata_path)

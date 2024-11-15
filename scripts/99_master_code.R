@@ -34,8 +34,8 @@ source("scripts/05_01_supervised_learning_biomarker_prediction.R") # changed thi
 rm(list = ls())
 source("scripts/05_02_supervised_learning_biomarker_prediction_plots.R", echo = TRUE)
 
-rm(list = ls())
-source("scripts/06_01_assumption_checking_for_ANOVA.R")
+# rm(list = ls())
+# source("scripts/06_01_assumption_checking_for_ANOVA.R")
 
 rm(list = ls())
 source("scripts/06_02_factorial_anova_with_norm_data.R")
@@ -43,8 +43,8 @@ source("scripts/06_02_factorial_anova_with_norm_data.R")
 rm(list = ls())
 source("scripts/06_03_fold_change_calculations.R")
 
-rm(list = ls())
-source("scripts/06_04_creating_data_for_IPA.R")
+# rm(list = ls())
+# source("scripts/06_04_creating_data_for_IPA.R")
 
 rm(list = ls())
 source("scripts/07_01_venndiagram_upSet_volcano_plot.R", echo = TRUE)
@@ -53,10 +53,14 @@ source("scripts/07_01_venndiagram_upSet_volcano_plot.R", echo = TRUE)
 rm(list = ls())
 source("scripts/07_02_supervised_learning_vs_anova_plots.R", echo = TRUE)
 
+# rm(list = ls())
+# source("scripts/07_03_heatmap_plots.R", echo = TRUE)
+# 
+# rm(list = ls())
+# source("scripts/07_04_Interaction_checking.R", echo = TRUE)
+
 rm(list = ls())
-source("scripts/07_03_heatmap_plots.R", echo = TRUE)
-
-
+source("scripts/07_05_removing_interaction_term(optional).R", echo = TRUE)
 # Only problem with this is the projects has to be saved to display in quarto file,
 # but what if the master script is a quarto file,
 # plot everything then remove the previous object ---- try it

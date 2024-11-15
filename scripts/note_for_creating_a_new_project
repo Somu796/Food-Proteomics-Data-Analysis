@@ -9,6 +9,7 @@ project_name
 - plots
 
 2. New R Project in existing directory --Done
+3. Add Git https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r
 
 3. Create Virtual Environment --Done
 helps in keeping version of the lib

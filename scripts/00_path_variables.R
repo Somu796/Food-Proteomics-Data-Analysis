@@ -10,10 +10,14 @@
 rawdata_path <- "data/raw data/Progenesis_LT_817_Quantifiable_prot_All.csv"
 
 # 2. Datasets -------------------------------------------------------------
-## 01 --------
+
+## 01 -----------
+### 01_01 --------
 gene_data <- save_gene_data_path <- "data/01_01_gene_data_post_01_cleaning.RData"
 sample_details <- save_sample_details_path <- "data/01_02_sample_details_sample_labels_post_01_01_cleaning.RData"
+### 01_02 -------
 sample_details_01 <- save_sample_details_01_path <- "data/01_03_sample_details_sample_labels_post_01_02_cleaning.RData"
+
 ## 02 ------------
 ### 02_01 -------------
 UniprotNames <- save_UniprotNames_path <- "data/02_01_01_enriched_gene_name_information_from_uniprot_post_02_01_enriching_.RData"
@@ -46,7 +50,7 @@ save_heatmap_EFS_features_Slaughter_Stress <- "plots/05_02_heatmap_EFS_features_
 
 ### 06_01 ---------------------
 
-# This has to be added
+assumption_checking <- save_assumption_checking <- "data/12_01_assumption_cheking_pre_anova.RData"
 
 ### 06_02 ------------------
 # in case of csv data we don't need factorial_anova_result, only save_.... is needed.
@@ -83,7 +87,7 @@ save_heatmap_significant_genes_Feeding_Regime_with_metabo_data <- "plots/07_03_0
 
 getAccession <- "scripts/functions/getAccession.R" # 02_01
 getGeneNames <- "scripts/functions/getGeneNames.R" # 02_01
-gerMergedGeneNames <- "scripts/functions/gerMergedGeneNames.R" #02_01
+getMergedGeneNames <- "scripts/functions/getMergedGeneNames.R" #02_01
 countAccession <- "scripts/functions/countAccession.R" #02_01
 getGeneNamesfromMultipleAccession <- "scripts/functions/getGeneNamesfromMultipleAccession.R" #02_01
 

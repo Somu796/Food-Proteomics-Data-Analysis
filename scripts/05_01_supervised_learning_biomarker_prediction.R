@@ -39,7 +39,7 @@ Data <- sample_details_01[, c(1,3,4)] %>%
 
 # B. Manual Approach for  lipivimus data
 ## Data from Variation removal due to "Feeding_Regime"
-residual_model_feeding_regime <- read.csv(save_residual_model_feeding_regime)
+residual_model_feeding_regime <- read.csv(residual_model_feeding_regime_knn_imputed)
 
 ## Preparing data for classification
 data_efs <- residual_model_feeding_regime %>% 

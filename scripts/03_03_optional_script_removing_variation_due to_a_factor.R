@@ -35,7 +35,7 @@ residualFactor <- function(Data, sample_data, Factor, save_residual_model_feedin
   # initiating linear model
   response_colname <- colnames(sample_data)[-1]
   treatment_colname <-  c("Feeding_Regime", "Slaughter_Condition")
-  treatment_colname_ref <- c("Control", "NoStress")
+  treatment_colname_ref <- c("Lipid", "NoStress")
   
   # creating reference/control
   for (i in seq_along(treatment_colname)){
@@ -52,7 +52,7 @@ residualFactor <- function(Data, sample_data, Factor, save_residual_model_feedin
     formula <- as.formula(glue("{response_colname[i]} ~ {Factor}"))
     model_feeding_regime <- lm(formula, data = Data)
     
-    residual_model_feeding_regime[1:40,response_colname[i]] <-  resid(model_feeding_regime)
+    residual_model_feeding_regime[1:nrow(Data),response_colname[i]] <-  resid(model_feeding_regime)
     
   }
   

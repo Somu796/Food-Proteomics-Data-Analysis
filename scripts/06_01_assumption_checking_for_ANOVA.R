@@ -131,7 +131,6 @@ shapiro_result <- Data %>%
 #   as.data.frame()
 
 
-
 # 6. Homogenity of Variance (Levene Test) -----------------------------------------------
 # this is an over all test for all the groups
 
@@ -152,7 +151,6 @@ levene_result <- levene_result %>%
 
 colnames(levene_result)[2] <- "levene_test"
 
-
 # 7. Merging all the data -------------------------------
 
 assumption_checking <- summary_data %>% 
@@ -161,9 +159,6 @@ assumption_checking <- summary_data %>%
   # full_join(shapiro_test_after, by = "Accession") %>%
   full_join(levene_result, by = "Accession") 
 
-
-
-
 # 8. Be awake about this variables ----------------------------
 
 assumption_checking %>% 
@@ -171,4 +166,4 @@ assumption_checking %>%
   view()
 
 # 9. Saving Assumption Checking Data --------------------------
-save(assumption_checking, file = "data/12_01_assumption_cheking_pre_anova.RData")
+save(assumption_checking, file = save_assumption_checking)

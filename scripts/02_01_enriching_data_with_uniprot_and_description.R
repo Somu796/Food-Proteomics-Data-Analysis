@@ -18,7 +18,7 @@ source(countAccession)
 source(getAccession)
 source(getGeneNames)
 source(getGeneNamesfromMultipleAccession)
-source("scripts/functions/gerMergedGeneNames.R")
+source("scripts/functions/getMergedGeneNames.R")
 
 # 2. Input for generating gene_data_01 from gene_data --------------------------------
 # Input
@@ -74,12 +74,12 @@ UniprotNames <- getGeneNamesfromMultipleAccession(information, gene_data)
 ### 5.3.1. enriching "merged" accessions with UniProt -------------------------
 # if Protein_name is merged in uniprot data that means 
 
-# source("scripts/functions/gerMergedGeneNames.R")
+# source("scripts/functions/getMergedGeneNames.R")
 
 merged_Accession_UniprotNames <-  UniprotNames %>% 
   filter(Protein_name == "merged") # filtering out only merged accession numbers
 
-merged_Accession_UniprotNames_information = gerMergedGeneNames(merged_Accession_UniprotNames$Accession) #collecting merged_accession -> new_accession
+merged_Accession_UniprotNames_information = getMergedGeneNames(merged_Accession_UniprotNames$Accession) #collecting merged_accession -> new_accession
 
 merged_Accession_UniprotNames_information_dummmy = GetGeneUniProt(as.vector(merged_Accession_UniprotNames_information[["new_Accession"]]), information)  #collecting details corresponding the merged accession number
 colnames(merged_Accession_UniprotNames_information_dummmy) = str_to_title(unlist(strsplit(information, ","))) #Changing column to more readable names and capitalize first letter

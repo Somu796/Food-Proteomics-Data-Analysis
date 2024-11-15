@@ -27,9 +27,12 @@ source("scripts/00_path_variables.R")
 
 # 2. Load "enriched_gene_data_01" and modify duplicated gene names to make it unique ------------------
 
+## 2.1. Only gene names are getting considered proteins with no gene names are not getting considered --------------------------------------
 load(enriched_gene_data_01) # enriched gene data
 gene_data_02 <- enriched_gene_data_01[!is.na(enriched_gene_data_01$Gene_primary),] #removing all the entries having "Gene_primary" as NA, means only protein names were not considered
 
+
+## 2.2. "gene_primary are considered to be the gene names" and "duplicate gene names are gettig .1 to be added on them". -----------------------------
 dup_indices <- c()
 dup_indices <- duplicated(gene_data_02$Gene_primary) | duplicated(gene_data_02$Gene_primary, fromLast = TRUE) # index of duplicate values
 # the above OR logic has been used to tackle the limitation on duplicated function, 

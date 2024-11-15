@@ -76,9 +76,14 @@ dev.off()
 pValue_Limit= 0.05
 
 ## 4.1. Separating the No Stress and Stress df separately -------------------------------
-nostress_colnames <- grepl("NoStress", colnames(factorial_anova_posthoc_result))
-stress_colnames <- setdiff(colnames(factorial_anova_posthoc_result), colnames(factorial_anova_posthoc_result)[nostress_colnames])
-nostress_colnames[1] <- TRUE
+nostress_colnames <- grepl("^NoStress\\.\\.\\.", colnames(factorial_anova_posthoc_result))
+nostress_colnames[1:3] <- TRUE # Accession, gene_name, Protein_name should be always there
+
+stress_colnames <- grepl("^Stress\\.\\.\\.", colnames(factorial_anova_posthoc_result))
+stress_colnames[1:3] <- TRUE
+
+# stress_colnames <- setdiff(colnames(factorial_anova_posthoc_result), colnames(factorial_anova_posthoc_result)[nostress_colnames])
+# nostress_colnames[1] <- TRUE
 
 ## 4.2. Modifying the column names -----------------------
 
@@ -107,27 +112,31 @@ colnames(stress_df) <- swap_words(colnames(stress_df))
 
 ## 4.3. Making a column for upset plot ----------------------------
 
-stress_df[is.na(stress_df)] <- 2 # replacing NA with 2
+# stress_df[is.na(stress_df)] <- 2 # replacing NA with 2
 
 # getting the column to plot upset
-for (i in 1: nrow(stress_df)){
+
+no_of_comparison_col_stress<- 4:ncol(stress_df)
+for (i in 1: nrow(stress_df)){ #
   stress_df$posthoc[i] <- str_replace_all(
     paste(
       unlist(
-        colnames(stress_df)[stress_df[i,] <0.05]
+        colnames(stress_df)[c(no_of_comparison_col_stress)][stress_df[i,no_of_comparison_col_stress] <0.05]
       ), collapse = "&"
     ), "_", "+")
 }
 
 
-nostress_df[is.na(nostress_df)] <- 2 # replacing NA with 2 
+# nostress_df[is.na(nostress_df)] <- 2 # replacing NA with 2 
 
 # getting the column to plot upset
+no_of_comparison_col_nostress<- 4:ncol(nostress_df)
+
 for (i in 1: nrow(nostress_df)){
   nostress_df$posthoc[i] <- str_replace_all(
     paste(
       unlist(
-        colnames(nostress_df)[nostress_df[i,] <0.05]
+        colnames(nostress_df)[c(no_of_comparison_col_nostress)][nostress_df[i, no_of_comparison_col_nostress] <0.05]
         ), collapse = "&")
     , "_", "+")
 }

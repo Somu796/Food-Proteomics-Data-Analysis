@@ -2,6 +2,7 @@
 # To RUN: This is an independent script.
 # saving_data: YES
 # data_name:
+# This produces NA in case of post hoc test related proteins
 
 # 1. Loading Libraries ----------------------------------------------------
 pacman::p_load(xlsx, tidyverse, glue,tidylog)
@@ -89,22 +90,38 @@ colnames(stress_df) <- swap_words(colnames(stress_df))
 colnames(nostress_df)
 
 Factor = c("Lipid_VitE_PlantExt - Lipid_VitE", 
-           "Lipid - Control", 
-           "Lipid_VitE_PlantExt - Control", 
            "Lipid_VitE_PlantExt - Lipid",
-           "Lipid_VitE - Control")
+           "Lipid_VitE - Lipid")
 
 meanFactorLevel.1 = c("Lipid_VitE_PlantExt", 
-                      "Lipid",
-                      "Lipid_VitE_PlantExt",
                       "Lipid_VitE_PlantExt",
                       "Lipid_VitE")
 
 meanFactorLevel.2 = c("Lipid_VitE", 
-                      "Control",
-                      "Control",
                       "Lipid",
-                      "Control")
+                      "Lipid")
+
+
+# Factor = c("Lipid_VitE_PlantExt - Lipid_VitE", 
+#            # "Lipid - Control", 
+#            # "Lipid_VitE_PlantExt - Control", 
+#            "Lipid_VitE_PlantExt - Lipid",
+#            # "Lipid_VitE - Control"
+#            )
+# 
+# meanFactorLevel.1 = c("Lipid_VitE_PlantExt", 
+#                       # "Lipid",
+#                       # "Lipid_VitE_PlantExt",
+#                       "Lipid_VitE_PlantExt",
+#                       # "Lipid_VitE"
+#                       )
+# 
+# meanFactorLevel.2 = c("Lipid_VitE", 
+#                       # "Control",
+#                       # "Control",
+#                       "Lipid",
+#                       # "Control"
+#                       )
 
 nostress_IPA <- nostress_df[,1:2]
 
@@ -128,6 +145,7 @@ for (i in 1:length(Factor)){
     full_join(FOldChangeData_Fed, by = c("Accession", "gene_name"))
 }
 
+colnames(nostress_IPA)[-1:-2] <- paste0("nostress_", colnames(nostress_IPA)[-1:-2])
 
 ### 3.2.1. stress_df ------------------
 
@@ -168,7 +186,7 @@ for (i in 1:length(Factor)){
 }
 
 
-
+colnames(stress_IPA)[-1:-2] <- paste0("stress_", colnames(stress_IPA)[-1:-2])
 
 # nostress_IPA
 # stress_IPA
@@ -180,7 +198,7 @@ IPA_Data <- FOldChangeData_Slaughter %>%
 
 # 4. Saving data for IPA Analysis -----------------------------------------
 
-write.csv(IPA_Data, file = IPA_Data_dest)
+write.csv(IPA_Data, file = IPA_Data_dest, row.names = FALSE)
 
 # ####  Lipid_VitE_PlantExt - Lipid_VitE
 # 
